@@ -1,0 +1,65 @@
+<link rel="stylesheet" type="text/css" href="css/myanimals.css" />
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <% for(var i = 0; i < data.length; i++) {%>
+        <div class="card col-3">
+          <p>
+            <i class="fa-solid fa-circle-xmark myBtn"></i>
+          </p>
+          <p>
+            <%= " Email: " + data[i].email %>
+          </p>
+          <p>
+            <%= " Name: " + data[i].name %>
+          </p>
+          <p>
+            <%= " Gender: " +data[i].gender%>
+          </p>
+          <p>
+            <%= " Breed: " +data[i].breed%>
+          </p>
+          <p>
+            <%= " Height: " +data[i].height%>
+          </p>
+          <p>
+            <%= " Length: " +data[i].length%>
+          </p>
+          <p>
+            <%= " Age: " +data[i].age%>
+          </p>
+          <p>
+            <i class="fa-solid fa-pencil myDesc"></i>
+          </p>
+          <div class="modal myModal">
+            <form action="" method="POST" class="myForm" autocomplete="off">
+              <div class="modal-content">
+                <div class="divdelete">
+                  <span>Do you want to delete the following Pet registration for this User?</span>
+                  <input type="text" name="email1" id="email1" class="form-control deletetext" value="<%= data[i].email %>" readonly>
+                  <input type="text" name="name1" id="name1" class="form-control deletetext" value="<%= data[i].name %>" readonly>
+                </div>
+                <div class="modifydiv">
+                  <span>Do you want to modify the following Pet registration for this User?</span>
+                  <input type="text" name="email2" id="email2" class="form-control modifytext" value="<%= data[i].email %>">
+                  <input type="text" name="name2" id="name2" class="form-control modifytext" value="<%= data[i].name %>">
+                  <input type="text" name="gender" id="gender" class="form-control modifytext" value="<%= data[i].gender %>">
+                  <input type="text" name="breed" id="breed" class="form-control modifytext" value="<%= data[i].breed %>">
+                  <input type="text" name="height" id="height" class="form-control modifytext" value="<%= data[i].height %>">
+                  <input type="text" name="length" id="length" class="form-control modifytext" value="<%= data[i].length %>">
+                  <input type="text" name="age" id="age" class="form-control modifytext" value="<%= data[i].age %>">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary close">Close</button>
+                  <button type="submit" class="btn btn-danger deletebutton" id="delete">Delete</button>
+                  <button type="submit" class="btn btn-warning modifybutton" id="modify">Modify</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      <% } %>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/myanimals.js"></script>

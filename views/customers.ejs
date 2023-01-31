@@ -42,17 +42,17 @@
           <div class="modal myModal">
             <form action="" method="POST" class="myForm" autocomplete="off">
               <div class="modal-content">
-                <input type="text" name="text" id="text" class="form-control deletetext" value="<%= data[i].email %>" readonly>
+                <input type="text" name="text" id="text" class="form-control deletetext" value="<%= data[i].email %>" aria-description="user email" readonly>
                 <div id="modifydiv">
-                  <input type="text" name="email" id="email" class="form-control modifytext" value="<%= data[i].email %>">
-                  <input type="text" name="password" id="password" class="form-control modifytext" value="<%= data[i].password %>">
-                  <input type="text" name="userid" id="userid" class="form-control modifytext" value="<%= data[i].userid %>">
-                  <input type="text" name="firstname" id="firstname" class="form-control modifytext" value="<%= data[i].firstname %>">
-                  <input type="text" name="secondname" id="secondname" class="form-control modifytext" value="<%= data[i].secondname %>">
-                  <input type="text" name="city" id="city" class="form-control modifytext" value="<%= data[i].city %>">
-                  <input type="text" name="state" id="state" class="form-control modifytext" value="<%= data[i].state %>">
-                  <input type="text" name="address" id="address" class="form-control modifytext" value="<%= data[i].address %>">
-                  <input type="text" name="vip" id="vip" class="form-control modifytext" value="<%= data[i].vip %>">
+                  <input type="text" name="email" id="email" class="form-control modifytext" value="<%= data[i].email %>" aria-description="user email">
+                  <input type="text" name="password" id="password" class="form-control modifytext" value="<%= data[i].password %>" aria-description="user password">
+                  <input type="text" name="userid" id="userid" class="form-control modifytext" value="<%= data[i].userid %>" aria-description="user id">
+                  <input type="text" name="firstname" id="firstname" class="form-control modifytext" value="<%= data[i].firstname %>" aria-description="user first name">
+                  <input type="text" name="secondname" id="secondname" class="form-control modifytext" value="<%= data[i].secondname %>" aria-description="user second name">
+                  <input type="text" name="city" id="city" class="form-control modifytext" value="<%= data[i].city %>" aria-description="user city">
+                  <input type="text" name="state" id="state" class="form-control modifytext" value="<%= data[i].state %>" aria-description="user state">
+                  <input type="text" name="address" id="address" class="form-control modifytext" value="<%= data[i].address %>" aria-description="user address">
+                  <input type="text" name="vip" id="vip" class="form-control modifytext" value="<%= data[i].vip %>" aria-description="value that indicates if the user has a vip account">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary close">Close</button>

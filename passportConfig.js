@@ -5,7 +5,7 @@ const User = require("./models/customer");
 const app = express()
 
 module.exports = (passport) => {
-   /* passport.use(
+/*passport.use(
     "local-signup",
     new LocalStrategy(
         {
@@ -27,7 +27,7 @@ module.exports = (passport) => {
             }
         }
     )
-    );*/
+);*/
 passport.use("local", new LocalStrategy({
     usernameField: "email",
     passwordField: "password",

@@ -97,11 +97,11 @@
                     <% } %>
                     </select>
                 </div>
-                <input type="text" class="form-control" name="site" id="site" value="<%= data[0].name %>" style="display: none;">
+                <input type="text" class="form-control" name="site" id="site" value="<%= data[0].name %>" aria-description="site name" style="display: none;">
                 <div class="row justify-content-center">
                     <div class="form-group col-3">
                         <div class="input-group date" id="datepicker"> 
-                            <input type="text" class="form-control" name="booking" id="booking">
+                            <input type="text" class="form-control" name="booking" id="booking" aria-description="date picker input">
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -126,7 +126,7 @@
                             <% } %>
                         <% } %>
                     </select>
-                    <input type="text" class="form-control" name="sitedel" id="sitedel" value="<%= data[0].name %>" style="display: none;">
+                    <input type="text" class="form-control" name="sitedel" id="sitedel" value="<%= data[0].name %>" style="display: none;" aria-description="site in which delete a reservation">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </div>
             </form>
@@ -151,11 +151,11 @@
                 <% } %>
                 </select>
             </div>
-            <input type="text" class="form-control" name="sitev" id="sitev" value="<%= data[0].name %>" style="display: none;">
+            <input type="text" class="form-control" name="sitev" id="sitev" value="<%= data[0].name %>" aria-description="site name" style="display: none;">
             <div class="row justify-content-center">
                 <div class="form-group col-3">
                     <div class="input-group date" id="datepickervet"> 
-                        <input type="text" class="form-control" name="bookingv" id="bookingv">
+                        <input type="text" class="form-control" name="bookingv" id="bookingv" aria-description="date picker input">
                         <span class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </span>
@@ -178,7 +178,7 @@
                         <% } %>
                     <% } %>
                 </select>
-                <input type="text" class="form-control" name="sitedelv" id="sitedelv" value="<%= data[0].name %>" style="display: none;">
+                <input type="text" class="form-control" name="sitedelv" id="sitedelv" value="<%= data[0].name %>" style="display: none;" aria-description="site in which delete a reservation">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </div>
         </form>

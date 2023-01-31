@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="./css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/register.css" />
+<script src="./js/bootstrap.bundle.js"></script>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-6">
+            <div class="card cardcontent">
+                <div class="card-title cardtitle">
+                    <span>Register</span>
+                </div>
+                <div class="card-subtitle cardsubtitle">
+                    <span>in some easy steps</span>
+                </div>
+                <div class="card-body">
+                    <form action="/register" method="POST">
+                        <div class="row">
+                            <div class="col-12">
+                                <label htmlFor="firstname">First Name</label>
+                                <input type="text" class="form-control" name="firstname" id="firstname" placeholder='Adrien' required/>
+                            </div>
+                                <div class="col-12">
+                                <label htmlFor="secondname">Second Name</label>
+                                <input type="text" class="form-control" name="secondname" id="secondname" placeholder='Martin' required/>
+                            </div>
+                            <div class="col-12">
+                                <label htmlFor="inputcity">City</label>
+                                <input type="text" class="form-control" name="inputcity" id="inputcity" placeholder='Paris' required/>
+                            </div>
+                            <div class="col-12">
+                                <label htmlFor="inputstate">State</label>
+                                <input type="text" class="form-control" name="inputstate" id="inputstate" placeholder='France' required/>
+                            </div>
+                            <div class="col-12">
+                                <label htmlFor="inputaddress">Address</label>
+                                <input type="text" class="form-control" name="inputaddress" id="inputaddress" placeholder='Avenue des Champs-Élysées' required/>
+                            </div>      
+                            <div class="col-12">
+                                <label htmlFor="inputemail">Email</label>
+                                <input type="email" class="form-control" name="inputemail" id="inputemail" placeholder='example@gmail.com' required/>
+                            </div>
+                            <div class="col-12">
+                                <label htmlFor="inputuser">UserId</label>
+                                <input type="text" class="form-control" name="inputuser" id="inputuser" placeholder='Adri91' required/>
+                            </div>
+                            <div class="col-12">
+                                <label htmlFor="inputpassword">Password</label>
+                                <input type="password" class="form-control" name="inputpassword" id="inputpassword" placeholder='********' required/>
+                            </div>       
+                            <div class="row btn1">
+                                <div class="col-12">
+                                  <p><button type="submit" class="btn btnLogReg">Register</button></p>
+                                  <p><a href="/login"><button
+                                    type='button'
+                                    class=alreadysigned
+                                    >
+                                      Already have an account? Sign in here.
+                                  </button></a></p>
+                                </div>
+                            </div>
+                        </div>
+                  </form>
+              </div>
+            </div>
+        </div>
+    </div>

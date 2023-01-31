@@ -36,18 +36,18 @@
               <div class="modal-content">
                 <div class="divdelete">
                   <span>Do you want to delete the following Pet registration for this User?</span>
-                  <input type="text" name="email1" id="email1" class="form-control deletetext" value="<%= data[i].email %>" readonly>
-                  <input type="text" name="name1" id="name1" class="form-control deletetext" value="<%= data[i].name %>" readonly>
+                  <input type="text" name="email1" id="email1" class="form-control deletetext" value="<%= data[i].email %>" aria-description="user email" readonly>
+                  <input type="text" name="name1" id="name1" class="form-control deletetext" value="<%= data[i].name %>" aria-description="pet name"  readonly>
                 </div>
                 <div class="modifydiv">
                   <span>Do you want to modify the following Pet registration for this User?</span>
-                  <input type="text" name="email2" id="email2" class="form-control modifytext" value="<%= data[i].email %>">
-                  <input type="text" name="name2" id="name2" class="form-control modifytext" value="<%= data[i].name %>">
-                  <input type="text" name="gender" id="gender" class="form-control modifytext" value="<%= data[i].gender %>">
-                  <input type="text" name="breed" id="breed" class="form-control modifytext" value="<%= data[i].breed %>">
-                  <input type="text" name="height" id="height" class="form-control modifytext" value="<%= data[i].height %>">
-                  <input type="text" name="length" id="length" class="form-control modifytext" value="<%= data[i].length %>">
-                  <input type="text" name="age" id="age" class="form-control modifytext" value="<%= data[i].age %>">
+                  <input type="text" name="email2" id="email2" class="form-control modifytext" value="<%= data[i].email %>" aria-description="email">
+                  <input type="text" name="name2" id="name2" class="form-control modifytext" value="<%= data[i].name %>" aria-description="pet name">
+                  <input type="text" name="gender" id="gender" class="form-control modifytext" value="<%= data[i].gender %>" aria-description="pet gender">
+                  <input type="text" name="breed" id="breed" class="form-control modifytext" value="<%= data[i].breed %>" aria-description="pet breed">
+                  <input type="text" name="height" id="height" class="form-control modifytext" value="<%= data[i].height %>" aria-description="pet height">
+                  <input type="text" name="length" id="length" class="form-control modifytext" value="<%= data[i].length %>" aria-description="pet length">
+                  <input type="text" name="age" id="age" class="form-control modifytext" value="<%= data[i].age %>" aria-description="pet age">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary close">Close</button>

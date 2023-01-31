@@ -121,6 +121,14 @@ app.post('/login',
     localStorage.setItem("auth", JSON.stringify(req.user))
   });
 
+  app.get("/login", (req, res) =>{
+    if(req.user !== undefined){
+      res.render("login.ejs", {layout: false, isLog:req.user.email})
+    } else {
+      res.render("login.ejs", {layout: false, isLog:null})
+    }
+  })
+
 app.post('/logout', function(req, res, next){
   req.logout(function(err) {
     if (err) { return next(err); }

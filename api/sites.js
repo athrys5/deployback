@@ -21,5 +21,13 @@ router.post('/apisitesPost', async (req, res) =>{
     }catch(error){ }
 })
 
+router.post('/apisiteName', async (req, res) =>{
+    try {
+        const specificSite = await Site.find({name: req.body.path});
+        res.send({data: specificSite})
+    } catch (error) {
+        
+    }
+})
 
 module.exports = router

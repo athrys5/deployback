@@ -9,11 +9,10 @@ const path = require('path')
 const fs = require('fs');
 const exists = './public/out/auth';
 const cors = require('cors')
-
 if (typeof localStorage === "undefined" || localStorage === null) {
     var LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./public/out');
-  }
+}
 //routers
 const loginRouter = require('./routes/user')
 const pagesRouter = require('./routes/pages')
@@ -35,6 +34,7 @@ const orderApi = require('./api/order')
 const postsApi = require('./api/posts')
 const salesApi = require('./api/sales')
 const sitesApi = require('./api/sites')
+const prodApi = require('./api/product')
 //session
 InitiateMongoServer()
 
@@ -94,6 +94,7 @@ app.use('/', orderApi)
 app.use('/', postsApi)
 app.use('/', salesApi)
 app.use('/', sitesApi)
+app.use('/', prodApi)
 
 app.use('/', express.static(__dirname + '/public/out'))
 app.use('/game', express.static(__dirname + '/public/dist'))
@@ -112,7 +113,7 @@ app.post('/login',
     res.redirect('/');
     if (!fs.existsSync(exists)) {
       const jsonflag = `{"key": true, "user": {"vip": ${req.user.vip}, "email": "${req.user.email}"}}`
-      fs.writeFile('./public/out/exist.json', jsonflag, function writeJSON(err) {
+      fs.writeFile(__dirname + '/public/out/exist.json', jsonflag, function writeJSON(err) {
         if (err) return console.log(err);
         console.log(jsonflag);
       });
@@ -126,7 +127,7 @@ app.post('/logout', function(req, res, next){
     res.redirect('/login');
     if (fs.existsSync(exists)) {
       const jsonflag = '{"key": false}'
-      fs.writeFile('./public/out/exist.json', jsonflag, function writeJSON(err) {
+      fs.writeFile(__dirname +  '/public/out/exist.json', jsonflag, function writeJSON(err) {
         if (err) return console.log(err);
         console.log(jsonflag);
       });
@@ -148,5 +149,6 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/' }),  as
 	res.redirect('/');
 });*/
 
-//app.use(cors)
+
+app.use(cors)
 app.listen(3000)

@@ -1,6 +1,7 @@
 const first = document.querySelectorAll('#first')
 const second = document.querySelectorAll('#second')
 const third = document.querySelectorAll('#third') 
+const fourth = document.querySelectorAll('#fourth') 
 const insertbtn = document.querySelector('.insertProds')
 const deletebtn = document.querySelector('.deleteProds')
 const modifybtn = document.querySelector('.modifyProds')
@@ -13,7 +14,8 @@ for (let j = 0; j < 3; j++){
         for(let i = 1; i < a.length; i++){ a[i].setAttribute('disabled', ''); }
         const b = document.getElementsByClassName('third')
         for(let i = 1; i < b.length; i++){ b[i].setAttribute('disabled', ''); }
-            
+        const d = document.getElementsByClassName('fourth')
+        for(let i = 1; i < d.length; i++){ d[i].setAttribute('disabled', ''); }
     });
 
     second[j].addEventListener('click', () => {
@@ -23,7 +25,8 @@ for (let j = 0; j < 3; j++){
         for(let i = 1; i < a.length; i++){ a[i].setAttribute('disabled', ''); }
         const b = document.getElementsByClassName('third')
         for(let i = 1; i < b.length; i++){ b[i].setAttribute('disabled', ''); }
-            
+        const d = document.getElementsByClassName('fourth')
+        for(let i = 1; i < d.length; i++){ d[i].setAttribute('disabled', ''); }
     });
 
     third[j].addEventListener('click', () => {
@@ -33,7 +36,19 @@ for (let j = 0; j < 3; j++){
         for(let i = 1; i < a.length; i++){ a[i].setAttribute('disabled', ''); }
         const b = document.getElementsByClassName('second')
         for(let i = 1; i < b.length; i++){ b[i].setAttribute('disabled', ''); }
-            
+        const d = document.getElementsByClassName('fourth')
+        for(let i = 1; i < d.length; i++){ d[i].setAttribute('disabled', ''); }    
+    });
+
+    fourth[j].addEventListener('click', () => {
+        const d = document.getElementsByClassName('fourth')
+        for(let i = 1; i < d.length; i++){ d[i].removeAttribute("disabled"); }
+        const b = document.getElementsByClassName('third')
+        for(let i = 1; i < b.length; i++){ b[i].setAttribute('disabled', ''); }
+        const a = document.getElementsByClassName('first')
+        for(let i = 1; i < a.length; i++){ a[i].setAttribute('disabled', ''); }
+        const c = document.getElementsByClassName('second')
+        for(let i = 1; i < c.length; i++){ c[i].setAttribute('disabled', ''); }
     });
 }
 
@@ -47,11 +62,6 @@ deletebtn.addEventListener('click', () => {
     deletebtn.style.cssText = 'background-color: #d7d7d7; color: #28272c';
     insertbtn.style.cssText = 'background-color: #28de62; color: white';
     modifybtn.style.cssText = 'background-color: #28de62; color: white';
-    $(modifybtn).hover(function(){
-        $(this).css("background-color", "yellow");
-        }, function(){
-        $(this).css("background-color", "pink");
-      });
 })
 
 insertbtn.addEventListener('click', () => {

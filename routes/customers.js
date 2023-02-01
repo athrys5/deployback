@@ -4,11 +4,22 @@ const Users = require('../models/customer')
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+var fs = require('fs')
+
 
 router.get('/customers', async (req, res) =>{
-    try{  
-        const list = await Users.find({});
-        res.render('customers.ejs', { data: list })
+    try{ 
+        var isAdmin = false
+        fs.readFile('./public/out/exist.json', 'utf8', function(err, data) {
+            if (err) throw err;
+            if(JSON.parse(data).key){
+                isAdmin = true
+            }else{
+                isAdmin = false
+            }
+          });
+        const list = await Users.find({})
+        res.render('customers.ejs', { data: list, show: isAdmin })
     }catch{ }
 })
 

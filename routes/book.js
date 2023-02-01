@@ -5,12 +5,23 @@ const Users = require('../models/customer')
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+var fs = require('fs')
+
 
 router.get('/book', async (req, res) =>{
     try{  
+        var isAdmin = false
+        fs.readFile('./public/out/exist.json', 'utf8', function(err, data) {
+            if (err) throw err;
+            if(JSON.parse(data).key){
+                isAdmin = true
+            }else{
+                isAdmin = false
+            }
+          });
         const list = await Book.find({});
         const result = await Users.find({})
-        res.render('book.ejs', { data: list , account: result})
+        res.render('book.ejs', { data: list , account: result, show: isAdmin})
     }catch{ 
     }
 })

@@ -4,12 +4,21 @@ const Site = require('../models/services')
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
+var fs = require('fs')
 
 router.get('/backservices', async (req, res) =>{
     try{  
+        var isAdmin = false
+        fs.readFile('./public/out/exist.json', 'utf8', function(err, data) {
+            if (err) throw err;
+            if(JSON.parse(data).key){
+                isAdmin = true
+            }else{
+                isAdmin = false
+            }
+          });
         const list = await Site.find({});
-        res.render('services.ejs', { data: list })
+        res.render('services.ejs', { data: list , show: isAdmin})
     }catch{ 
     }
 })

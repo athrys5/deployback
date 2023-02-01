@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/customer.css" />
-
+<% if(show){%>
 <div class="container-fluid">
     <div class="row justify-content-center">
       <% for(var i = 0; i < data.length; i++) {%>
@@ -66,5 +66,7 @@
       <% } %>
     </div>
 </div>
-
+<%}else{%>
+  Unauthorized User.
+<%}%>
 <script type="text/javascript" src="js/customer.js"></script>

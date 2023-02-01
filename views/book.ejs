@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/book.css">
 
+<% if(show){%>
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <form action="/book" method="POST">
@@ -184,6 +186,9 @@
         </form>
     </div>
 </div>
+<%}else{%>
+    Unauthorized User.
+<%}%>
 
 <script>
     var disHour = []

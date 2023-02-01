@@ -4,11 +4,21 @@ const Animals = require('../models/myanimals')
 const bodyParser = require('body-parser');
 router.use(bodyParser.json()); // for parsing application/json
 router.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+var fs = require('fs')
 
 router.get('/myanimals', async (req, res) =>{
     try{  
+        var isAdmin = false
+        fs.readFile('./public/out/exist.json', 'utf8', function(err, data) {
+            if (err) throw err;
+            if(JSON.parse(data).key){
+                isAdmin = true
+            }else{
+                isAdmin = false
+            }
+          });
         const list = await Animals.find({});
-        res.render('myanimals.ejs', { data: list })
+        res.render('myanimals.ejs', { data: list, show: isAdmin })
     }catch{ }
 })
 

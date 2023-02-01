@@ -37,6 +37,10 @@ let postSchema = mongoose.Schema({
         type: Boolean,
         required: true
     },
+    isAdmin: {
+        type: Boolean,
+        required: true
+    },
 },
 { versionKey: false });
 mongoose.pluralize(null);

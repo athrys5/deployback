@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-router.get('/product', (req, res) =>{
-    res.render('product.ejs')
-})
+
 
 router.get('/Leaderboard', (req, res) =>{
     res.sendFile(path.join(__dirname, '../public/out/', 'Leaderboard.html'));

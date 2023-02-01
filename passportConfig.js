@@ -3,7 +3,8 @@ const passport = require('passport')
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/customer");
 const app = express()
-
+const InitiateMongoServer = require("./config/db");
+const { default: mongoose } = require('mongoose');
 module.exports = (passport) => {
 /*passport.use(
     "local-signup",

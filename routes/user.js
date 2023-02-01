@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
         if(result.length > 0){
             res.redirect('/register?e=' + encodeURIComponent('User already exists'));
         }else{
-            const result = await User.insertMany({email:req.body.inputemail, password:req.body.inputpassword,userid:req.body.inputuser,firstname:req.body.firstname,secondname:req.body.secondname,city:req.body.inputcity,state:req.body.inputstate,address:req.body.inputaddress,vip:false})
+            const result = await User.insertMany({email:req.body.inputemail, password:req.body.inputpassword,userid:req.body.inputuser,firstname:req.body.firstname,secondname:req.body.secondname,city:req.body.inputcity,state:req.body.inputstate,address:req.body.inputaddress,vip:false, isAdmin: false})
             res.redirect('/register?e=' + encodeURIComponent('Registration done'));
         }
     } catch (error) {
@@ -25,5 +25,18 @@ router.post("/login", function (req, res) {
     passport.use(new LocalStrategy(
           User.findOne({ email: req.body.email, password: req.body.password })))
 });*/
+
+router.get("/turnadmin", (req, res) => {
+    res.render("admin.ejs", {layout: false})
+})
+
+router.post("/upgrade", async(req, res) => {
+    try {
+        await User.updateMany({ email: req.body.email }, {$set: { isAdmin: true}})
+        res.redirect('/backoffice')
+    } catch (error) {
+        
+    }
+})
 
 module.exports = router

@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/services.css">
-
+<% if(show){%>
 <div class="container-fluid">
     <button id="addSite" class="mybtn">Add Site</button>
     <div class="row justify-content-center" id="addSiteDiv">
@@ -131,6 +131,7 @@
         <% } %>
     </div>
 </div>
-
-
+<%}else{%>
+    Unauthorized User.
+<%}%>
 <script type="text/javascript" src="js/services.js"></script>

@@ -9,6 +9,8 @@ const path = require('path')
 const fs = require('fs');
 const exists = './public/out/auth';
 const cors = require('cors')
+InitiateMongoServer()
+
 if (typeof localStorage === "undefined" || localStorage === null) {
     var LocalStorage = require('node-localstorage').LocalStorage;
     localStorage = new LocalStorage('./public/out');
@@ -20,7 +22,7 @@ const prodRouter = require('./routes/product')
 const descRouter = require('./routes/desc')
 const customerRouter = require('./routes/customers')
 const animalsRouter = require('./routes/myanimals')
-    //const leaderboardRouter = require('./routes/leaderboard')
+const indexRouter = require('./routes/index')
 const servicesRouter = require('./routes/services')
 const bookRouter = require('./routes/book')
 
@@ -36,7 +38,6 @@ const salesApi = require('./api/sales')
 const sitesApi = require('./api/sites')
 const prodApi = require('./api/product')
 //session
-InitiateMongoServer()
 
 app.use(session({
     secret: 'ciao',
@@ -82,7 +83,7 @@ app.use('/', loginRouter)
 app.use('/', descRouter)
 app.use('/', customerRouter)
 app.use('/', animalsRouter)
-//app.use('/', leaderboardRouter)
+app.use('/', indexRouter)
 app.use('/', servicesRouter)
 app.use('/', bookRouter)
 app.use('/', boardApi)
@@ -105,6 +106,10 @@ app.get('/game', (req, res) => {
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/out/index.html')
+})
+
+app.get('/backoffice/*', (req, res) => {
+  res.render(__dirname + '/views/index.ejs')
 })
 
 app.post('/login',

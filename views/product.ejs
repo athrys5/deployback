@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/product.css" />
+<% if(show){%>
 <div class="container-fluid">
     <div class="row">
         <div class="col-8 insertDiv" id="insertDiv">
@@ -297,5 +298,7 @@
         </div>
     </div>
 </div>
-
+<%}else{%>
+    Unauthorized User.
+<%}%>
 <script type="text/javascript" src="js/product.js"></script>
